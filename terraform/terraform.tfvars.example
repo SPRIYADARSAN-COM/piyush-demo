@@ -1,0 +1,35 @@
+# Example Terraform variables file
+# Copy this file to terraform.tfvars and customize the values
+
+# AWS Configuration
+aws_region = "us-west-2"
+
+# Project Configuration
+project_name = "piyush-demo"
+environment  = "dev"
+
+# Network Configuration
+vpc_cidr               = "10.0.0.0/16"
+public_subnet_cidrs    = ["10.0.1.0/24", "10.0.2.0/24"]
+private_subnet_cidrs   = ["10.0.3.0/24", "10.0.4.0/24"]
+
+# OpenSearch Configuration
+opensearch_instance_type  = "t3.small.search"
+opensearch_instance_count = 2
+opensearch_volume_size    = 20
+
+# SSL Certificate Configuration
+# This should match your existing ACM certificate domain
+certificate_domain = "*.example.com"
+
+# Dashboard Configuration
+dashboard_path = "/opensearch/*"
+
+# Tags applied to all resources
+common_tags = {
+  Project     = "piyush-demo"
+  Environment = "dev"
+  ManagedBy   = "terraform"
+  Owner       = "infrastructure-team"
+  CostCenter  = "engineering"
+}
